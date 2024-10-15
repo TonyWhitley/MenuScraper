@@ -34,7 +34,6 @@ namespace ProcessScreenCaptureOCR
 
         public void Scrape()
         {
-            // Specify the process window title or class name (use "AMS2AVX" if that's the exact window title)
             string processName = "AMS2AVX";
             // Find the process by name
             Process process = Process.GetProcessesByName(processName)[0];
@@ -52,7 +51,7 @@ namespace ProcessScreenCaptureOCR
 
             if (hWnd == IntPtr.Zero)
             {
-                Console.WriteLine($"Window with title {processName} not found.");
+                Console.WriteLine($"Window for {processName} not found.");
                 return;
             }
 
@@ -79,7 +78,7 @@ namespace ProcessScreenCaptureOCR
                 bitmap.Save("CapturedImage.png", System.Drawing.Imaging.ImageFormat.Png);
 
                 // Perform OCR on the captured image
-                using (var engine = new TesseractEngine(@"./tessdata", "eng", EngineMode.Default))
+                using (var engine = new TesseractEngine(@"./tessdata", "eng", EngineMode.Default, @"./tessdata/tessconfigs/ams2.patterns.config"))
                 {
                     using (var img = ConvertBitmapToPix(bitmap))
                     {
@@ -94,9 +93,6 @@ namespace ProcessScreenCaptureOCR
                     }
                 }
             }
-
-            Console.WriteLine("OCR process completed.");
-            //Console.ReadLine();
         }
         public static Pix ConvertBitmapToPix(Bitmap bitmap)
         {

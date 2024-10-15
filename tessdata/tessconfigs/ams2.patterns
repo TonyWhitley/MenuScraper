@@ -1,0 +1,6 @@
+STRATEGY\n\*<\n\*>
+FUEL\n\*<\n\*\d\*l\n\*(\d\*\nLAPS)>
+DAMAGE\n\*<\n\*>
+SWAP\nDRIVER\n\*<O\c\*>
+Request\nPit\nStop\n\*>
+PIT\nSTOP

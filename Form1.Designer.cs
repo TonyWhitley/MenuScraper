@@ -46,7 +46,7 @@ partial class Form1
         // 
         // textBox1
         // 
-        textBox1.Location = new Point(522, 26);
+        textBox1.Location = new Point(540, 24);
         textBox1.Multiline = true;
         textBox1.Name = "textBox1";
         textBox1.ReadOnly = true;
@@ -57,7 +57,7 @@ partial class Form1
         // 
         pictureBox1.Location = new Point(23, 24);
         pictureBox1.Name = "pictureBox1";
-        pictureBox1.Size = new Size(466, 531);
+        pictureBox1.Size = new Size(493, 531);
         pictureBox1.TabIndex = 2;
         pictureBox1.TabStop = false;
         // 
