@@ -8,7 +8,7 @@ using Tesseract;
 
 namespace ProcessScreenCaptureOCR
 {
-    class Program2
+    class Scraper
     {
         // Import necessary functions from the Windows API
         [DllImport("user32.dll")]
@@ -26,7 +26,13 @@ namespace ProcessScreenCaptureOCR
             public int Bottom;
         }
 
-        static public void Scraper()
+        public Bitmap CapturE;
+        public string Ocr;
+
+        public Scraper()
+        {}
+
+        public void Scrape()
         {
             // Specify the process window title or class name (use "AMS2AVX" if that's the exact window title)
             string processName = "AMS2AVX";
@@ -58,7 +64,7 @@ namespace ProcessScreenCaptureOCR
             }
 
             // Define the rectangle area to capture (x, y, width, height)
-            Rectangle captureRect = new Rectangle(500, 940, 540, 500);
+            Rectangle captureRect = new Rectangle(530, 940, 510, 450);
 
 
             // Capture the specified area of the window
@@ -82,13 +88,15 @@ namespace ProcessScreenCaptureOCR
                             string extractedText = page.GetText();
                             Console.WriteLine("Extracted Text:");
                             Console.WriteLine(extractedText);
+                            this.Ocr = extractedText;
+                            this.CapturE = new Bitmap(bitmap);
                         }
                     }
                 }
             }
 
             Console.WriteLine("OCR process completed.");
-            Console.ReadLine();
+            //Console.ReadLine();
         }
         public static Pix ConvertBitmapToPix(Bitmap bitmap)
         {
