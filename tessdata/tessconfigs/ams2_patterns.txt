@@ -1,0 +1,2 @@
+\d+l\s\(\d+\sLAPS\)       # Matches patterns like "6l (6 LAPS)"
+\s?\w+\s?               # Matches " All-Weather " or " Default "
